@@ -12,7 +12,7 @@ macOS 13 以降と Swift 6 が必要です。
 ./scripts/install.sh
 ```
 
-アプリをビルドし、管理者権限で実行ファイルと LaunchDaemon をシステム領域に配置します。インストール直後に起動し、以降は macOS 起動時にログインを待たずに開始します。Dock やメニューバーに表示されません。更新も同じコマンドで行えます。
+アプリをビルドし、管理者権限で `/Applications/WakeLight.app` に配置します。旧版の自動起動サービスが動作していれば停止し、LaunchDaemon を新しいアプリに切り替えてその場で起動します。次回からは macOS 起動時にログインを待たずに開始します。更新も同じコマンドで行えます。
 
 ## 動作確認
 
@@ -28,8 +28,10 @@ Mac をスリープさせてからスマホで Magic Packet を送り、画面�
 ```sh
 sudo launchctl bootout system/com.indivisual.WOLFullWake
 sudo rm /Library/LaunchDaemons/com.indivisual.WOLFullWake.plist
-sudo rm /Library/PrivilegedHelperTools/com.indivisual.WOLFullWake
+sudo rm -r /Applications/WakeLight.app
 ```
+
+旧版から更新した場合は、不要になった `/Library/PrivilegedHelperTools/com.indivisual.WOLFullWake` も削除できます。
 
 ## ビルドのみ
 

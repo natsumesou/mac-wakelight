@@ -6,7 +6,7 @@
     <string>com.indivisual.WOLFullWake</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/Library/PrivilegedHelperTools/com.indivisual.WOLFullWake</string>
+        <string>/Applications/WakeLight.app/Contents/MacOS/WakeLight</string>
     </array>
     <key>RunAtLoad</key>
     <true/>
